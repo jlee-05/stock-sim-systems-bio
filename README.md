@@ -1,1 +1,49 @@
-# stock-sim-systems-bio
+# Stochastic Simulation of Reaction-Diffusion Systems
+
+**Supplementary Material for Dissertation** | Durham University  
+**Topic:** Stochastic Modelling for Systems Biology
+
+---
+
+## 📌 Overview
+This repository contains the visual results (GIF animations) generated from stochastic simulations of the **Gray-Scott Reaction-Diffusion model**.
+
+The primary goal of this research is to bridge the gap between microscopic molecular fluctuations (noise) and macroscopic spatial patterns. The simulations compare exact methods (**Gillespie SSA**) with approximated stochastic methods (**Chemical Langevin Equation / RDLE**) to demonstrate how intrinsic noise drives pattern formation.
+
+---
+
+## 1. The Effect of Noise (Volume Scaling)
+The "graininess" of the simulation is controlled by the system size parameter, $\Omega$ (Omega).
+
+* **Low Population ($\Omega=50$):** High intrinsic noise. The system is dominated by stochastic fluctuations, leading to spontaneous nucleation and "ragged" pattern edges.
+* **High Population ($\Omega=5000$):** Low noise. The system approaches the deterministic limit (ODE), resulting in smooth, continuous wavefronts.
+
+| **High Noise ($\Omega=50$)** | **Deterministic Limit ($\Omega=5000$)** |
+|:----------------------------:|:---------------------------------------:|
+| ![Low Pop Result](results/Labyrinth_Omega50.gif) | ![High Pop Result](results/Labyrinth_Omega5000.gif) |
+| *Note the spontaneous symmetry breaking caused by noise.* | *Smooth evolution typical of standard differential equations.* |
+
+---
+
+## 2. Pattern Versatility (Turing Instability)
+By adjusting the **Feed ($F$)** and **Kill ($k$)** rates, the system shifts between different Turing regimes, replicating biological patterns found in nature (e.g., *Tetraodon mbu* pufferfish skin).
+
+### 🐡 Phenotype A: Juvenile Spots
+* **Parameters:** $F=0.030, k=0.062$
+* **Behavior:** Isolated regions of high concentration stabilize into spots.
+
+![Spots Animation](results/Spots_Omega1000.gif)
+
+### 🦓 Phenotype B: Adult Labyrinths (Stripes)
+* **Parameters:** $F=0.055, k=0.062$
+* **Behavior:** Spots elongate and merge to form complex, maze-like structures.
+
+![Maze Animation](results/Labyrinth_Omega1000.gif)
+
+---
+
+## 🛠️ Methodology
+These results were generated using a custom Python implementation of the **Spatial Gillespie Algorithm** and the **Euler-Maruyama method** for the Reaction-Diffusion Langevin Equation (RDLE).
+
+* **Language:** Python (NumPy, SciPy)
+* **Visualization:** Matplotlib & Manim
