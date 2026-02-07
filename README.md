@@ -8,14 +8,14 @@
 ## 📌 Overview
 This repository contains the visual results (GIF animations) generated from stochastic simulations of the **Gray-Scott Reaction-Diffusion model**.
 
-The primary goal of this research is to bridge the gap between microscopic molecular fluctuations (noise) and macroscopic spatial patterns. The simulations compare exact methods (**Gillespie SSA**) with approximated stochastic methods (**Chemical Langevin Equation / RDLE**) to demonstrate how intrinsic noise drives pattern formation.
+The primary goal of this research is to bridge the gap between microscopic molecular fluctuations (noise) and macroscopic spatial patterns. The simulations utilize the **Chemical Langevin Equation (CLE)** and its spatial extension (**RDLE**) to efficiently approximate the stochastic dynamics on a 2D grid, demonstrating how intrinsic noise drives pattern formation.
 
 ---
 
 ## 1. The Effect of Noise (Volume Scaling)
 The "graininess" of the simulation is controlled by the system size parameter, $\Omega$ (Omega).
 
-* **Low Population ($\Omega=50$):** High intrinsic noise. The system is dominated by stochastic fluctuations, leading to spontaneous nucleation and "ragged" pattern edges.
+* **Low Population ($\Omega=50$):** High intrinsic noise. The RDLE approximation reveals how stochastic fluctuations dominate, leading to spontaneous nucleation and "ragged" pattern edges.
 * **High Population ($\Omega=5000$):** Low noise. The system approaches the deterministic limit (ODE), resulting in smooth, continuous wavefronts.
 
 | **High Noise ($\Omega=50$)** | **Deterministic Limit ($\Omega=5000$)** |
@@ -43,7 +43,7 @@ By adjusting the **Feed ($F$)** and **Kill ($k$)** rates, the system shifts betw
 ---
 
 ## 🛠️ Methodology
-These results were generated using a custom Python implementation of the **Spatial Gillespie Algorithm** and the **Euler-Maruyama method** for the Reaction-Diffusion Langevin Equation (RDLE).
+These results were generated using the **Euler-Maruyama method** for the Reaction-Diffusion Langevin Equation (RDLE). This approximation allows for the simulation of complex spatial patterns that would be computationally prohibitive using the exact Gillespie Algorithm (SSA).
 
 * **Language:** Python (NumPy, SciPy)
 * **Visualization:** Matplotlib & Manim
