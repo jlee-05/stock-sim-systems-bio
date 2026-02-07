@@ -20,7 +20,7 @@ The "graininess" of the simulation is controlled by the system size parameter, $
 
 | **High Noise ($\Omega=50$)** | **Deterministic Limit ($\Omega=5000$)** |
 |:----------------------------:|:---------------------------------------:|
-| ![Low Pop Result](results/Labyrinth_Omega50.gif) | ![High Pop Result](results/Labyrinth_Omega5000.gif) |
+| ![Low Pop Result](Results/Labyrinth_Omega50.gif) | ![High Pop Result](results/Labyrinth_Omega5000.gif) |
 | *Note the spontaneous symmetry breaking caused by noise.* | *Smooth evolution typical of standard differential equations.* |
 
 ---
